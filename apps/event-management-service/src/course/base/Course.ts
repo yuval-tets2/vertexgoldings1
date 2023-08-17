@@ -15,9 +15,9 @@ import { AdmissionBatch } from "../../admissionBatch/base/AdmissionBatch";
 import {
   ValidateNested,
   IsOptional,
+  IsString,
   IsDate,
   IsInt,
-  IsString,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { AdmissionCriterion } from "../../admissionCriterion/base/AdmissionCriterion";
@@ -55,6 +55,17 @@ class Course {
   @Type(() => AdmissionForm)
   @IsOptional()
   admissionForm?: Array<AdmissionForm>;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  comment!: string | null;
 
   @ApiProperty({
     required: true,

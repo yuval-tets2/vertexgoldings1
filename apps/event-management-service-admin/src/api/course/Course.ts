@@ -10,6 +10,7 @@ export type Course = {
   admissionBatches?: Array<AdmissionBatch>;
   admissionCriteria?: Array<AdmissionCriterion>;
   admissionForm?: Array<AdmissionForm>;
+  comment: string | null;
   createdAt: Date;
   credits: number;
   department?: Department;

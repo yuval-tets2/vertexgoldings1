@@ -32,6 +32,7 @@ export const UniversityShow = (props: ShowProps): React.ReactElement => {
           label="Courses"
         >
           <Datagrid rowClick="show">
+            <TextField label="comment" source="comment" />
             <DateField source="createdAt" label="Created At" />
             <TextField label="Credits" source="credits" />
             <ReferenceField
