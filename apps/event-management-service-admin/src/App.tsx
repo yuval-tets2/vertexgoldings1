@@ -17,6 +17,46 @@ import { CustomerList } from "./customer/CustomerList";
 import { CustomerCreate } from "./customer/CustomerCreate";
 import { CustomerEdit } from "./customer/CustomerEdit";
 import { CustomerShow } from "./customer/CustomerShow";
+import { UniversityList } from "./university/UniversityList";
+import { UniversityCreate } from "./university/UniversityCreate";
+import { UniversityEdit } from "./university/UniversityEdit";
+import { UniversityShow } from "./university/UniversityShow";
+import { StudentList } from "./student/StudentList";
+import { StudentCreate } from "./student/StudentCreate";
+import { StudentEdit } from "./student/StudentEdit";
+import { StudentShow } from "./student/StudentShow";
+import { CourseList } from "./course/CourseList";
+import { CourseCreate } from "./course/CourseCreate";
+import { CourseEdit } from "./course/CourseEdit";
+import { CourseShow } from "./course/CourseShow";
+import { DepartmentList } from "./department/DepartmentList";
+import { DepartmentCreate } from "./department/DepartmentCreate";
+import { DepartmentEdit } from "./department/DepartmentEdit";
+import { DepartmentShow } from "./department/DepartmentShow";
+import { AdmissionBatchList } from "./admissionBatch/AdmissionBatchList";
+import { AdmissionBatchCreate } from "./admissionBatch/AdmissionBatchCreate";
+import { AdmissionBatchEdit } from "./admissionBatch/AdmissionBatchEdit";
+import { AdmissionBatchShow } from "./admissionBatch/AdmissionBatchShow";
+import { AdmissionFormList } from "./admissionForm/AdmissionFormList";
+import { AdmissionFormCreate } from "./admissionForm/AdmissionFormCreate";
+import { AdmissionFormEdit } from "./admissionForm/AdmissionFormEdit";
+import { AdmissionFormShow } from "./admissionForm/AdmissionFormShow";
+import { FacultyList } from "./faculty/FacultyList";
+import { FacultyCreate } from "./faculty/FacultyCreate";
+import { FacultyEdit } from "./faculty/FacultyEdit";
+import { FacultyShow } from "./faculty/FacultyShow";
+import { MarkSheetList } from "./markSheet/MarkSheetList";
+import { MarkSheetCreate } from "./markSheet/MarkSheetCreate";
+import { MarkSheetEdit } from "./markSheet/MarkSheetEdit";
+import { MarkSheetShow } from "./markSheet/MarkSheetShow";
+import { EmployeeList } from "./employee/EmployeeList";
+import { EmployeeCreate } from "./employee/EmployeeCreate";
+import { EmployeeEdit } from "./employee/EmployeeEdit";
+import { EmployeeShow } from "./employee/EmployeeShow";
+import { AdmissionCriterionList } from "./admissionCriterion/AdmissionCriterionList";
+import { AdmissionCriterionCreate } from "./admissionCriterion/AdmissionCriterionCreate";
+import { AdmissionCriterionEdit } from "./admissionCriterion/AdmissionCriterionEdit";
+import { AdmissionCriterionShow } from "./admissionCriterion/AdmissionCriterionShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -63,6 +103,76 @@ const App = (): React.ReactElement => {
           edit={CustomerEdit}
           create={CustomerCreate}
           show={CustomerShow}
+        />
+        <Resource
+          name="University"
+          list={UniversityList}
+          edit={UniversityEdit}
+          create={UniversityCreate}
+          show={UniversityShow}
+        />
+        <Resource
+          name="Student"
+          list={StudentList}
+          edit={StudentEdit}
+          create={StudentCreate}
+          show={StudentShow}
+        />
+        <Resource
+          name="Course"
+          list={CourseList}
+          edit={CourseEdit}
+          create={CourseCreate}
+          show={CourseShow}
+        />
+        <Resource
+          name="Department"
+          list={DepartmentList}
+          edit={DepartmentEdit}
+          create={DepartmentCreate}
+          show={DepartmentShow}
+        />
+        <Resource
+          name="AdmissionBatch"
+          list={AdmissionBatchList}
+          edit={AdmissionBatchEdit}
+          create={AdmissionBatchCreate}
+          show={AdmissionBatchShow}
+        />
+        <Resource
+          name="AdmissionForm"
+          list={AdmissionFormList}
+          edit={AdmissionFormEdit}
+          create={AdmissionFormCreate}
+          show={AdmissionFormShow}
+        />
+        <Resource
+          name="Faculty"
+          list={FacultyList}
+          edit={FacultyEdit}
+          create={FacultyCreate}
+          show={FacultyShow}
+        />
+        <Resource
+          name="MarkSheet"
+          list={MarkSheetList}
+          edit={MarkSheetEdit}
+          create={MarkSheetCreate}
+          show={MarkSheetShow}
+        />
+        <Resource
+          name="Employee"
+          list={EmployeeList}
+          edit={EmployeeEdit}
+          create={EmployeeCreate}
+          show={EmployeeShow}
+        />
+        <Resource
+          name="AdmissionCriterion"
+          list={AdmissionCriterionList}
+          edit={AdmissionCriterionEdit}
+          create={AdmissionCriterionCreate}
+          show={AdmissionCriterionShow}
         />
       </Admin>
     </div>

@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DB_URL")
 }
 
@@ -35,4 +35,143 @@ model Customer {
   lastName  String?
   phone     String?
   updatedAt DateTime @updatedAt
+}
+
+model University {
+  courses     Course[]
+  createdAt   DateTime     @default(now())
+  department  Department[]
+  description String?
+  employee    Employee[]
+  established Int
+  id          String       @id @default(cuid())
+  location    String
+  name        String
+  students    Student[]
+  updatedAt   DateTime     @updatedAt
+}
+
+model Student {
+  address       String?
+  admissionDate DateTime
+  admissionForm AdmissionForm[]
+  createdAt     DateTime          @default(now())
+  dateOfBirth   DateTime
+  email         String
+  firstName     String
+  gender        EnumStudentGender
+  id            String            @id @default(cuid())
+  lastName      String
+  markSheet     MarkSheet[]
+  phone         String?
+  university    University        @relation(fields: [universityId], references: [id])
+  universityId  String
+  updatedAt     DateTime          @updatedAt
+}
+
+model Course {
+  admissionBatches  AdmissionBatch[]
+  admissionCriteria AdmissionCriterion[]
+  admissionForm     AdmissionForm[]
+  createdAt         DateTime             @default(now())
+  credits           Int
+  department        Department           @relation(fields: [departmentId], references: [id])
+  departmentId      String
+  description       String?
+  faculty           Faculty?             @relation(fields: [facultyId], references: [id])
+  facultyId         String?
+  id                String               @id @default(cuid())
+  markSheet         MarkSheet[]
+  name              String
+  university        University           @relation(fields: [universityId], references: [id])
+  universityId      String
+  updatedAt         DateTime             @updatedAt
+}
+
+model Department {
+  courses      Course[]
+  createdAt    DateTime   @default(now())
+  employee     Employee[]
+  faculty      Faculty[]
+  id           String     @id @default(cuid())
+  name         String
+  university   University @relation(fields: [universityId], references: [id])
+  universityId String
+  updatedAt    DateTime   @updatedAt
+}
+
+model AdmissionBatch {
+  admissionForm AdmissionForm[]
+  courses       Course[]
+  createdAt     DateTime        @default(now())
+  endDate       DateTime
+  id            String          @id @default(cuid())
+  name          String
+  startDate     DateTime
+  updatedAt     DateTime        @updatedAt
+}
+
+model AdmissionForm {
+  admissionBatch   AdmissionBatch @relation(fields: [admissionBatchId], references: [id])
+  admissionBatchId String
+  course           Course         @relation(fields: [courseId], references: [id])
+  courseId         String
+  createdAt        DateTime       @default(now())
+  formSubmittedAt  DateTime       @default(now())
+  id               String         @id @default(cuid())
+  student          Student        @relation(fields: [studentId], references: [id])
+  studentId        String
+  updatedAt        DateTime       @updatedAt
+}
+
+model Faculty {
+  courses      Course[]
+  createdAt    DateTime   @default(now())
+  department   Department @relation(fields: [departmentId], references: [id])
+  departmentId String
+  id           String     @id @default(cuid())
+  name         String
+  updatedAt    DateTime   @updatedAt
+}
+
+model MarkSheet {
+  course        Course   @relation(fields: [courseId], references: [id])
+  courseId      String
+  createdAt     DateTime @default(now())
+  id            String   @id @default(cuid())
+  marksObtained Int
+  student       Student  @relation(fields: [studentId], references: [id])
+  studentId     String
+  totalMarks    Int
+  updatedAt     DateTime @updatedAt
+}
+
+model Employee {
+  createdAt    DateTime   @default(now())
+  department   Department @relation(fields: [departmentId], references: [id])
+  departmentId String
+  designation  String
+  firstName    String
+  id           String     @id @default(cuid())
+  lastName     String
+  university   University @relation(fields: [universityId], references: [id])
+  universityId String
+  updatedAt    DateTime   @updatedAt
+}
+
+model AdmissionCriterion {
+  course       Course   @relation(fields: [courseId], references: [id])
+  courseId     String
+  createdAt    DateTime @default(now())
+  id           String   @id @default(cuid())
+  minimumMarks Float
+  updatedAt    DateTime @updatedAt
+
+  @@map("AdmissionCriteria")
+}
+
+enum EnumStudentGender {
+  MALE
+  FEMALE
+  OTHER
 }
