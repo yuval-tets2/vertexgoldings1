@@ -1,6 +1,7 @@
 import { SortOrder } from "../../util/SortOrder";
 
 export type CourseOrderByInput = {
+  comment?: SortOrder;
   createdAt?: SortOrder;
   credits?: SortOrder;
   departmentId?: SortOrder;

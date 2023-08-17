@@ -73,6 +73,7 @@ model Course {
   admissionBatches  AdmissionBatch[]
   admissionCriteria AdmissionCriterion[]
   admissionForm     AdmissionForm[]
+  comment           String?
   createdAt         DateTime             @default(now())
   credits           Int
   department        Department           @relation(fields: [departmentId], references: [id])

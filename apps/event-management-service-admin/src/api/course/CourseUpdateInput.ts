@@ -10,6 +10,7 @@ export type CourseUpdateInput = {
   admissionBatches?: AdmissionBatchUpdateManyWithoutCoursesInput;
   admissionCriteria?: AdmissionCriterionUpdateManyWithoutCoursesInput;
   admissionForm?: AdmissionFormUpdateManyWithoutCoursesInput;
+  comment?: string | null;
   credits?: number;
   department?: DepartmentWhereUniqueInput;
   description?: string | null;

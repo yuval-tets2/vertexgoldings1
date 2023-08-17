@@ -16,6 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { AdmissionCriterionListRelationFilter } from "../../admissionCriterion/base/AdmissionCriterionListRelationFilter";
 import { AdmissionFormListRelationFilter } from "../../admissionForm/base/AdmissionFormListRelationFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DepartmentWhereUniqueInput } from "../../department/base/DepartmentWhereUniqueInput";
 import { FacultyWhereUniqueInput } from "../../faculty/base/FacultyWhereUniqueInput";
 import { MarkSheetListRelationFilter } from "../../markSheet/base/MarkSheetListRelationFilter";
@@ -58,6 +59,17 @@ class CourseWhereInput {
     nullable: true,
   })
   admissionForm?: AdmissionFormListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  comment?: StringNullableFilter;
 
   @ApiProperty({
     required: false,

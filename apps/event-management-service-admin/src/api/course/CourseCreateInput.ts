@@ -10,6 +10,7 @@ export type CourseCreateInput = {
   admissionBatches?: AdmissionBatchCreateNestedManyWithoutCoursesInput;
   admissionCriteria?: AdmissionCriterionCreateNestedManyWithoutCoursesInput;
   admissionForm?: AdmissionFormCreateNestedManyWithoutCoursesInput;
+  comment?: string | null;
   credits: number;
   department: DepartmentWhereUniqueInput;
   description?: string | null;

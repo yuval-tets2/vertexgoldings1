@@ -78,6 +78,7 @@ export class CourseControllerBase {
         },
       },
       select: {
+        comment: true,
         createdAt: true,
         credits: true,
 
@@ -126,6 +127,7 @@ export class CourseControllerBase {
     return this.service.findMany({
       ...args,
       select: {
+        comment: true,
         createdAt: true,
         credits: true,
 
@@ -175,6 +177,7 @@ export class CourseControllerBase {
     const result = await this.service.findOne({
       where: params,
       select: {
+        comment: true,
         createdAt: true,
         credits: true,
 
@@ -249,6 +252,7 @@ export class CourseControllerBase {
           },
         },
         select: {
+          comment: true,
           createdAt: true,
           credits: true,
 
@@ -306,6 +310,7 @@ export class CourseControllerBase {
       return await this.service.delete({
         where: params,
         select: {
+          comment: true,
           createdAt: true,
           credits: true,
 

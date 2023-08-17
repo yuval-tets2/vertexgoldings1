@@ -6,10 +6,10 @@ import {
   CreateProps,
   ReferenceArrayInput,
   SelectArrayInput,
+  TextInput,
   NumberInput,
   ReferenceInput,
   SelectInput,
-  TextInput,
 } from "react-admin";
 
 import { AdmissionBatchTitle } from "../admissionBatch/AdmissionBatchTitle";
@@ -48,6 +48,7 @@ export const CourseCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={AdmissionFormTitle} />
         </ReferenceArrayInput>
+        <TextInput label="comment" multiline source="comment" />
         <NumberInput step={1} label="Credits" source="credits" />
         <ReferenceInput
           source="department.id"

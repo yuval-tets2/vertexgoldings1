@@ -252,6 +252,7 @@ export class FacultyControllerBase {
     const results = await this.service.findCourses(params.id, {
       ...query,
       select: {
+        comment: true,
         createdAt: true,
         credits: true,
 
